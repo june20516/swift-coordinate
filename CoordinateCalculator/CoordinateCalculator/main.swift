@@ -19,7 +19,7 @@ func main() {
         inputValidity = Validator.validate(rawCoordinate: inputedString)
     }
     // 검사를 통과한 값을 배열로 변환
-    let inputedCoordinates = CoordGenerator.makeNumericArrayBy(rawInput: inputedString).compactMap { $0 }
+    let inputedPoints = CoordGenerator.pointify(rawInput: inputedString)
     // mypoint에 저장
     let myFigure = CoordGenerator.classifyFigure(coordinates: inputedCoordinates)
     // 화면 초기화

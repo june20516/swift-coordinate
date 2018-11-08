@@ -11,21 +11,22 @@ import Foundation
 
 struct MyLine: MyFigure {
     
-    var points: [MyPoint] { return [self.pointA, self.pointB] }
+    var points: [MyPoint]
     private let pointA: MyPoint
     private let pointB: MyPoint
     var calculatedResult: Double? {
         return computeDistance(of: self.pointA, to: self.pointB)
     }
     
-    init(coordinateArray: [Int]) {
-        self.pointA = MyPoint(x: coordinateArray[0], y: coordinateArray[1])
-        self.pointB = MyPoint(x: coordinateArray[2], y: coordinateArray[3])
+    init(pointArray: [MyPoint]) {
+        self.points = pointArray
+        self.pointA = pointArray[0]
+        self.pointB = pointArray[1]
     }
     
-    func computeDistance(of from: MyPoint, to: MyPoint ) -> Double {
-        let xDistance = (from.x - to.x)
-        let yDistatnce = (from.y - to.y)
+    func computeDistance(of line: MyLine ) -> Double {
+        let xDistance = (line.pointA.x - line.pointB.x)
+        let yDistatnce = (line.pointA.y - line.pointB.y)
         let lineDistance = sqrt(square(of: xDistance) + square(of: yDistatnce))
         return lineDistance
     }
