@@ -21,7 +21,7 @@ func main() {
     // 검사를 통과한 값을 배열로 변환
     let inputedPoints = CoordGenerator.pointify(rawInput: inputedString)
     // mypoint에 저장
-    let myFigure = CoordGenerator.classifyFigure(coordinates: inputedCoordinates)
+    let myFigure = CoordGenerator.classifyFigure(points: inputedPoints)
     // 화면 초기화
     PrintView.eraseDisplay()
     // 좌표계 위에 포인트 출력

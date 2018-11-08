@@ -46,6 +46,7 @@ struct PrintView {
     private static func switchMentBy(figure: MyFigure) -> String {
         switch figure {
         case is MyLine: return "두 점 사이 거리는 "
+        case is MyTriangle: return "삼각형의 넓이는 "
         default: return "연산이 없습니다"
         }
     }

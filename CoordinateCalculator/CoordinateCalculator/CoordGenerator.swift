@@ -11,7 +11,7 @@ import Foundation
 struct CoordGenerator {
     
     // String에서 좌표값을 뽑아 array로 저장
-    private static func makeNumericArrayBy(rawInput: String) -> [Int?] {
+    static func makeNumericArrayBy(rawInput: String) -> [Int?] {
         let pointElements = rawInput.components(separatedBy:CharacterSet(charactersIn: "-,")).map { $0.trimmingCharacters(in: CharacterSet(charactersIn: "()")) }
         let numericElements = pointElements.map {Int($0)}
         return numericElements
@@ -27,11 +27,13 @@ struct CoordGenerator {
     }
     
     //좌표값array를 입력받아 figure 결정
-    static func classifyFigure(coordinates: [Int]) -> MyFigure {
-        switch coordinates.count {
-        case 4 :
-            return MyLine(coordinateArray: coordinates)
-        default : return MyPoint(x: coordinates[0], y: coordinates[1])
+    static func classifyFigure(points: [MyPoint]) -> MyFigure {
+        switch points.count {
+        case 2 :
+            return MyLine(pointArray: points)
+        case 3 :
+            return MyTriangle(pointArray: points)
+        default : return points[0]
         }
     }
 }

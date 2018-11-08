@@ -11,7 +11,7 @@ import Foundation
 struct MyTriangle: MyFigure {
     var points: [MyPoint]
 
-    var calculatedResult: Double?
+    var calculatedResult: Double? {return computeArea(of: self)}
 
     private let pointA: MyPoint
     private let pointB: MyPoint
@@ -35,8 +35,8 @@ struct MyTriangle: MyFigure {
         let squareOfLineAB = pow(triangle.lineAB.calculatedResult ?? 0, 2)
         let squareOfLineBC = pow(triangle.lineBC.calculatedResult ?? 0, 2)
         let squareOfLineAC = pow(triangle.lineAC.calculatedResult ?? 0, 2)
-        let area = sqrt( (4 * squareOfLineAB * squareOfLineBC) - pow((squareOfLineAB + squareOfLineBC - squareOfLineAC),2) )
-        return area
+        let area = (1 / 4) * sqrt( (4 * squareOfLineAB * squareOfLineBC) - pow((squareOfLineAB + squareOfLineBC - squareOfLineAC),2) )
+        return round(area * 1000) / 1000
     }
     
 }

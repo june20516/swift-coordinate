@@ -45,7 +45,7 @@ class Validator {
             guard element != nil else {return false}
         }
         // 좌표 개수 제한
-        return rawCoordinate.count % 2 == 0 && rawCoordinate.count < 5
+        return rawCoordinate.count % 2 == 0 && rawCoordinate.count < 7
     }
     
     // 입력 값의 범위 조건

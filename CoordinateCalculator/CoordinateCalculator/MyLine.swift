@@ -15,7 +15,7 @@ struct MyLine: MyFigure {
     private let pointA: MyPoint
     private let pointB: MyPoint
     var calculatedResult: Double? {
-        return computeDistance(of: self.pointA, to: self.pointB)
+        return computeDistance(of: self)
     }
     
     init(pointArray: [MyPoint]) {
